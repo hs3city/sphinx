@@ -1,0 +1,38 @@
+{
+  "quiz": [
+    {
+      "question": "What do you like to eat?",
+      "answers": [
+        {
+          "answer": "Pasta",
+          "correct": false
+        },
+        {
+          "answer": "Pizza",
+          "correct": false
+        },
+        {
+          "answer": "Yes",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "question": "What is your favourite color",
+      "answers": [
+        {
+          "answer": "Green",
+          "correct": true
+        },
+        {
+          "answer": "Blue",
+          "correct": false
+        },
+        {
+          "answer": "Red",
+          "correct": false
+        }
+      ]
+    }
+  ]
+}
