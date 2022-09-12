@@ -64,13 +64,63 @@ def read_questions():
     print('Points: {}/{}'.format(points, q_number))
     f.close()
 
-    highscores = open("highscores", "a")
-    highscores.write("Id: {}, Points: {}/{}\n".format(nickname, points, q_number))
+    highscores = open('highscores', 'a')
+    highscores.write('Id: {}, Points: {}/{}\n'.format(nickname, points, q_number))
     highscores.close()
+
+def highscores():
+    highscores_file = open('highscores', 'r')
+    lines = highscores_file.readlines()
+
+    message = ''
+    if len(lines) > 0:
+        scores = []
+        for line in lines:
+            [raw_nick, raw_scores] = line.split(',')
+            nick = raw_nick[4:]
+            [raw_score, raw_total_score] = raw_scores.split('/')
+            scores.append({'id': nick, 'score': int(raw_score[9:]), 'total_score': int(raw_total_score.strip()), 'line': line})
+
+        scores = sorted(scores, key=lambda k: k['score'], reverse=True)[0:10]
+        for s in scores:
+            message += s['line']
+    else:
+        message = 'No highschores yet!'
+
+    highscores_file.close()
+    print(message)
+    print('Press A to return to main menu')
+
+    while True:
+        if badger.pressed(badger2040.BUTTON_A):
+            main_menu()
+            break
+        # Halt the Badger to save power, it will wake up if any of the front buttons are pressed
+        badger.halt()
+
+
+def main_menu():
+    print('Hello to SphinxQuiz!')
+    print('Please pick')
+    print('1. Start a new game')
+    print('2. See leaderboards')
+    print('3. Exit')
+    while True:
+        if badger.pressed(badger2040.BUTTON_A):
+            read_questions()
+            break
+        if badger.pressed(badger2040.BUTTON_B):
+            highscores()
+            break
+        if badger.pressed(badger2040.BUTTON_C):
+            break
+
+        # Halt the Badger to save power, it will wake up if any of the front buttons are pressed
+        badger.halt()
 
 def main():
     splash_screen()
-    read_questions()
+    main_menu()
 
 if __name__ == "__main__":
     main()
