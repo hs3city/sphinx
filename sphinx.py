@@ -3,6 +3,8 @@ import time
 import badger2040
 badger = badger2040.Badger2040()
 
+FONT_SCALE=0.7
+
 def splash_screen():
     file = 'slide1.bin'
     image = bytearray(int(296 * 128 / 8))
@@ -24,15 +26,15 @@ def read_questions():
         q_number += 1
         badger.clear()
         badger.pen(0)
-        badger.text("question", 20, 20,scale=0.5)
-        badger.text(q["question"], 20, 40,scale=0.5)
+        badger.text("question", 5, 20,scale=FONT_SCALE)
+        badger.text(q["question"], 5, 40,scale=FONT_SCALE)
         print("question")
         print(q['question'])
         i = 1
         correct_answer = 0
         for a in q['answers']:
             print('{}: {}'.format(i, a['answer']))
-            badger.text('{}: {}'.format(chr(i-1+ord('a')), a['answer']), 20, 40+i*20,scale=0.5)
+            badger.text('{}. {}'.format(chr(i-1+ord('A')), a['answer']), 20, 40+i*20,scale=FONT_SCALE)
             correct_answer = i if a['correct'] else correct_answer
             i+=1
         badger.update()
@@ -56,8 +58,8 @@ def read_questions():
     badger.pen(15)
     badger.clear()
     badger.pen(0)
-    badger.text('Id: {}'.format(nickname), 20, 20,scale=0.5)
-    badger.text('Points: {}/{}'.format(points, q_number), 20, 40,scale=0.5)
+    badger.text('Id: {}'.format(nickname), 5, 20,scale=FONT_SCALE)
+    badger.text('Points: {}/{}'.format(points, q_number), 5, 40,scale=FONT_SCALE)
     badger.update()
     print('\n')
     print('Id: {}'.format(nickname))
@@ -81,13 +83,23 @@ def highscores():
             [raw_score, raw_total_score] = raw_scores.split('/')
             scores.append({'id': nick, 'score': int(raw_score[9:]), 'total_score': int(raw_total_score.strip()), 'line': line})
 
-        scores = sorted(scores, key=lambda k: k['score'], reverse=True)[0:10]
+        scores = sorted(scores, key=lambda k: k['score'], reverse=True)[0:4]
         for s in scores:
             message += s['line']
     else:
         message = 'No highschores yet!'
 
     highscores_file.close()
+
+    badger.pen(15)
+    badger.clear()
+    badger.pen(0)
+    i = 0
+    for line in message.split('\n'):
+        badger.text(line, 5, 20+i*20,scale=FONT_SCALE)
+        i += 1
+    badger.text('Press A to return to menu', 5, 20+i*20,scale=FONT_SCALE)
+    badger.update()
     print(message)
     print('Press A to return to main menu')
 
@@ -100,6 +112,15 @@ def highscores():
 
 
 def main_menu():
+    badger.pen(15)
+    badger.clear()
+    badger.pen(0)
+    badger.text('Hello to SphinxQuiz!', 5, 20,scale=FONT_SCALE)
+    badger.text('Please pick', 5, 40,scale=FONT_SCALE)
+    badger.text('A. Start a new game', 5, 60,scale=FONT_SCALE)
+    badger.text('B. See leaderboards', 5, 80,scale=FONT_SCALE)
+    badger.text('C. Exit', 5, 100,scale=FONT_SCALE)
+    badger.update()
     print('Hello to SphinxQuiz!')
     print('Please pick')
     print('1. Start a new game')
