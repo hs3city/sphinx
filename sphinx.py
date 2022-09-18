@@ -1,9 +1,11 @@
 import json
 import time
 import badger2040
+import random
 badger = badger2040.Badger2040()
 
 FONT_SCALE=0.7
+
 
 def clear_screen():
     badger.pen(15)
@@ -23,7 +25,13 @@ def write_text(text, x, y, scale):
     print(text)
 
 def generate_nickname():
-    return "AAC"
+    nickname = ''
+    options = ['a', 'b', 'c', 'd', 'e', 'f', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
+
+    for n in [1,2,3,4]:
+        i = int(random.random() * len(options))
+        nickname += options[i]
+    return nickname
 
 def read_questions():
     nickname = generate_nickname()
