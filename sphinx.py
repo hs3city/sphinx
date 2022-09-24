@@ -2,10 +2,10 @@ import json
 import time
 import badger2040
 import random
+
 badger = badger2040.Badger2040()
 
-FONT_SCALE=0.7
-
+FONT_SCALE=0.6
 
 def clear_screen():
     badger.pen(15)
@@ -49,6 +49,7 @@ def read_questions():
 
     f = open("questions.json","r")
     data = json.load(f)
+    f.close()
     points = 0
     q_number = 0
 
@@ -56,12 +57,14 @@ def read_questions():
         q_number += 1
 
         clear_screen()
-        write_text(q["question"], 5, 20,scale=FONT_SCALE)
+        write_text(q["question"][0], 5, 10,scale=FONT_SCALE)
+        if len(q["question"]) > 1:
+            write_text(q["question"][1], 5, 30,scale=FONT_SCALE)
 
         i = 1
         correct_answer = 0
         for a in q['answers']:
-            write_text('{}. {}'.format(chr(i-1+ord('A')), a['answer']), 20, 40+i*20,scale=FONT_SCALE)
+            write_text('{}. {}'.format(chr(i-1+ord('A')), a['answer']), 5, 50+i*20,scale=FONT_SCALE)
             correct_answer = i if a['correct'] else correct_answer
             i+=1
         badger.update()
@@ -84,14 +87,20 @@ def read_questions():
     clear_screen()
     write_text('Id: {}'.format(nickname), 5, 20,scale=FONT_SCALE)
     write_text('Points: {}/{}'.format(points, q_number), 5, 40,scale=FONT_SCALE)
-    badger.update()
-    f.close()
+
+    write_text('Press A to return to menu', 5, 20+i*20,scale=FONT_SCALE)
 
     highscores = open('highscores', 'a')
     highscores.write('Id: {}, Points: {}/{}\n'.format(nickname, points, q_number))
     highscores.close()
 
-    time.sleep(4.0)
+    badger.update()
+
+    while True:
+        if badger.pressed(badger2040.BUTTON_A):
+            return True
+
+        badger.halt()
 
 def highscores():
     message = 'No highschores yet!'
@@ -129,8 +138,7 @@ def highscores():
 
     while True:
         if badger.pressed(badger2040.BUTTON_A):
-            main_menu()
-            break
+            return True
 
         badger.halt()
 
@@ -144,11 +152,9 @@ def main_menu():
     badger.update()
     while True:
         if badger.pressed(badger2040.BUTTON_A):
-            read_questions()
-            break
+            return read_questions()
         if badger.pressed(badger2040.BUTTON_B):
-            highscores()
-            break
+            return highscores()
         if badger.pressed(badger2040.BUTTON_C):
             return False
 
@@ -156,7 +162,7 @@ def main_menu():
     return True
 
 def main():
-    #splash_screen()
+    splash_screen()
     next_round = True
     while next_round:
         next_round = main_menu()
