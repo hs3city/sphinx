@@ -1,36 +1,342 @@
 {
   "quiz": [
     {
-      "question": "What do you like to eat?",
+      "question": ["W jakiej pamieci znajduje sie", "BIOS?"],
       "answers": [
         {
-          "answer": "Pasta",
+          "answer": "ROM",
+          "correct": true
+        },
+        {
+          "answer": "RAM",
           "correct": false
         },
         {
-          "answer": "Pizza",
+          "answer": "CACHE",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": ["Jaki standard plyt glownych", "jest najpopularniejszy?"],
+      "answers": [
+        {
+          "answer": "ATX",
+          "correct": true
+        },
+        {
+          "answer": "BTX",
           "correct": false
         },
         {
-          "answer": "Yes",
+          "answer": "LPX",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": ["Co przeprowadza test POST?"],
+      "answers": [
+        {
+          "answer": "BIOS",
+          "correct": true
+        },
+        {
+          "answer": "PAMIEC RAM",
+          "correct": false
+        },
+        {
+          "answer": "PAMIEC CACHE",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": ["Formaty plikow takie jak MP4,", "AVI oraz MOV to formaty..."],
+      "answers": [
+        {
+          "answer": "MUZYKI",
+          "correct": false
+        },
+        {
+          "answer": "WIDEO",
+          "correct": true
+        },
+        {
+          "answer": "GRAFIKI",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": ["Jaki rodzaj jadra systemowego", "posiada Windows 7?"],
+      "answers": [
+        {
+          "answer": "MONOLITYCZNE",
+          "correct": false
+        },
+        {
+          "answer": "HYBRYDOWE",
+          "correct": true
+        },
+        {
+          "answer": "MIKROJADRO",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": ["Jaka litera odpowiada za", "podkreslenie tekstu w HTML?"],
+      "answers": [
+        {
+          "answer": "b",
+          "correct": false
+        },
+        {
+          "answer": "i",
+          "correct": false
+        },
+        {
+          "answer": "u",
           "correct": true
         }
       ]
     },
     {
-      "question": "What is your favourite color",
+      "question": ["Kto zalozyl Google?"],
       "answers": [
         {
-          "answer": "Green",
+          "answer": "LARRY PAGE, SERGEY  BRIN",
           "correct": true
         },
         {
-          "answer": "Blue",
+          "answer": "STEVE JOBS, STEVE WOZNIAK",
           "correct": false
         },
         {
-          "answer": "Red",
+          "answer": "MARK ZUCKERBERG",
           "correct": false
+        }
+      ]
+    },
+    {
+      "question": ["Kto razem z Billem Gatesem", "zalozyl Microsoft?"],
+      "answers": [
+        {
+          "answer": "STEVE WOZNIAK",
+          "correct": false
+        },
+        {
+          "answer": "LARRY PAGE",
+          "correct": false
+        },
+        {
+          "answer": "PAUL ALLEN",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "question": ["Ktory rodzaj dysku twardego", "jest najszybszy?"],
+      "answers": [
+        {
+          "answer": "HDD",
+          "correct": false
+        },
+        {
+          "answer": "SSD",
+          "correct": true
+        },
+        {
+          "answer": "DSD",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": ["Jeden bajt to..."],
+      "answers": [
+        {
+          "answer": "8 bitow",
+          "correct": true
+        },
+        {
+          "answer": "16 bitow",
+          "correct": false
+        },
+        {
+          "answer": "32 bity",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": ["Kto wynalazl pierwszy", "komputer?"],
+      "answers": [
+        {
+          "answer": "EDWARD ROBERTS",
+          "correct": true
+        },
+        {
+          "answer": "LEON LUKASIEWICZ",
+          "correct": false
+        },
+        {
+          "answer": "HENRYK GRENIEWSKI",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": ["Kiedy zostal wynaleziony", "pierwszy komputer?"],
+      "answers": [
+        {
+          "answer": "1939",
+          "correct": false
+        },
+        {
+          "answer": "1900",
+          "correct": false
+        },
+        {
+          "answer": "1946",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "question": ["Do czego byly uzywane", "pierwsze komputery?"],
+      "answers": [
+        {
+          "answer": "W CELACH ROZRYWKOWYCH",
+          "correct": false
+        },
+        {
+          "answer": "W CELACH WOJSKOWYCH",
+          "correct": true
+        },
+        {
+          "answer": "W CELACH BIZNESOWYCH",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": ["Jaka nosil nazwe pierwszy", "komputer?"],
+      "answers": [
+        {
+          "answer": "INTER",
+          "correct": false
+        },
+        {
+          "answer": "MEIN KRAFT",
+          "correct": false
+        },
+        {
+          "answer": "ENIAC",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "question": ["Jaka mase mial pierwszy", "komputer?"],
+      "answers": [
+        {
+          "answer": "39kg",
+          "correct": false
+        },
+        {
+          "answer": "10kg",
+          "correct": false
+        },
+        {
+          "answer": "27t",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "question": ["Jaki aktualnie jest najpopular-", "niejszy system operacyjny?"],
+      "answers": [
+        {
+          "answer": "MacOS",
+          "correct": false
+        },
+        {
+          "answer": "LINUX",
+          "correct": false
+        },
+        {
+          "answer": "MICROSOFT WINDOWS",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "question": ["Ile procent osob w Polsce ma", "w domu komputer?"],
+      "answers": [
+        {
+          "answer": "POWYZEJ 80%",
+          "correct": true
+        },
+        {
+          "answer": "OK. 50%",
+          "correct": false
+        },
+        {
+          "answer": "MNIEJ NIZ 50%",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": ["Kiedy powstal pierwszy", "komputer przenosny?"],
+      "answers": [
+        {
+          "answer": "1979",
+          "correct": true
+        },
+        {
+          "answer": "1999",
+          "correct": false
+        },
+        {
+          "answer": "1898",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": ["Ile warty jest rocznie przemysl", "gier komputerowych?"],
+      "answers": [
+        {
+          "answer": "100 milionow zlotych",
+          "correct": false
+        },
+        {
+          "answer": "100 miliardow zlotych",
+          "correct": false
+        },
+        {
+          "answer": "100 miliardow dolarów",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "question": ["Kto wynalazl pierwszego", "laptopa?"],
+      "answers": [
+        {
+          "answer": "OTTO VON BISMARCK",
+          "correct": false
+        },
+        {
+          "answer": "MIESZKO I",
+          "correct": false
+        },
+        {
+          "answer": "WILLIAM MOGGRIDGE",
+          "correct": true
         }
       ]
     }
